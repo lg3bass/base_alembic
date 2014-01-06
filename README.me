@@ -6,10 +6,23 @@ The initial problem was when I exported from Maya, normals were only exported ha
 
 The second issue I was trying to figure out was translating Maya world space to OF easyCam space.  Maya's default units are centimeters while OF's units are in meters.  You can set Maya to meters but this is problematic with legacy projects.  
 
-#GOALS
+# ADDONS
+- ofxalembic (https://github.com/lg3bass/ofxAlembic)
+
+Use my fork of this. The latest fork (https://github.com/perfume-dev/ofxAlembic) has debug output code that slows down rendering. 
+
+
+# GOALS
 This is very much a WIP test app. These were the initial goals (Not all have been met)
 - Write a function to calculate/average normals on an .abc file. (not done)
 - Move the .abc file to a vbo and try instancing. (not done)
 - Determine the screen/world space coming from Maya (complete)
 - Explore optimal MayaABCExport settings on specific polyMesh types (blend shapes, partial Lofts, poly smoothing) (complete)
 - implement ofNode for global transforms. (complete)
+
+
+# Average Normals script.
+
+My initial intention was to use a function to average normals on every frame however costly that may be.  So I did some searching and found a script in the Open Frameworks - <a href="http://books.google.com/books?id=WRr2AAAAQBAJ&lpg=PT366&dq=average+normals+openframeworks+demystified&source=bl&ots=9mpemr52o6&sig=9TJU-Pgfa-NpoJiTQfyh9pUSe1E&hl=en&sa=X&ei=ZtbKUt6wG4Kc2QXNqYCIBw&output=reader&pg=GBS.PT366">Creative Coding Demystified book </a>
+
+While I put in the function I didn't really test it as I found the winding order on abc files to be too much to decipher. Plus, I would need getIndices on the mesh which is not avail through ofxAlembic. In the end I experimented with the output setting in Maya and was able to reach a workaround.  So this task was sidelined for now.  I would still like to investigate and figure out how to do this. 
