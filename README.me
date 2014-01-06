@@ -1,0 +1,15 @@
+# Simple Example using ofxAlembic and Maya's Alembic Exporter
+
+This is a simple project setup with the intention to explore calculating normals on-the-fly.  Pressing any key displays vertex normals (however, slows it down a lot).
+
+The initial problem was when I exported from Maya, normals were only exported half the time.  At first I thought it was a limitation of ofxAlembic, not being able to read this data but upon further examination it was Maya shortcoming.  After a number of trail and error experiments I was able to export desirable .abc meshes.  
+
+The second issue I was trying to figure out was translating Maya world space to OF easyCam space.  Maya's default units are centimeters while OF's units are in meters.  You can set Maya to meters but this is problematic with legacy projects.  
+
+#GOALS
+This is very much a WIP test app. These were the initial goals (Not all have been met)
+- Write a function to calculate/average normals on an .abc file. (not done)
+- Move the .abc file to a vbo and try instancing. (not done)
+- Determine the screen/world space coming from Maya (complete)
+- Explore optimal MayaABCExport settings on specific polyMesh types (blend shapes, partial Lofts, poly smoothing) (complete)
+- implement ofNode for global transforms. (complete)

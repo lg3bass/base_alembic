@@ -3,7 +3,7 @@
 *.xcuserstate
 *.sublime-workspace
 
-bin/data/OLD/
+/bin/data/OLD/
 
 # Xcode
 .DS_Store
